@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>specific-product demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../specific-product.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic specific-product demo</h3>
+      <demo-snippet>
+        <template>
+          <specific-product></specific-product>
+          <p id="name"></p>
+          <p id="description"></p>
+          <p id="url"></p>
+          <p id="price"></p>
+        </template>
+        <script>
+         let product=document.querySelector('specific-product');
+         product.addEventListener("add-cart",(event)=>{
+           document.querySelector("#name").innerHTML=event.detail.name;
+           document.querySelector("#description").innerHTML=event.detail.description;
+           document.querySelector("#url").innerHTML=event.detail.url;
+           document.querySelector("#price").innerHTML="$ "+event.detail.name;
+         });
+        </script>
+      </demo-snippet>
+    </div>
+  </body>
+</html>

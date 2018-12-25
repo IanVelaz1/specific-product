@@ -1,0 +1,104 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../paper-button/paper-button.html">
+
+<dom-module id="specific-product">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      .container {
+        width: 100%;
+      }
+
+      .product-container{
+        width: 400px;
+        margin: 0 auto;
+        text-align: center;
+      }
+ 
+      .responsive {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+      }
+
+      paper-button{
+        --paper-button-ink-color:indigo;
+      }
+
+      paper-button{
+        --paper-button:{
+          background-color:rgba(39,147,214,0.8);
+          font-weight:bolder;
+          color:white;
+          font-size:110%;
+        }
+      }
+
+      #title{
+        font-size: 120%;
+        font-weight: bold;
+      }
+
+      #price{
+        font-size: 115%;
+        font-weight: bold;
+        color: orange;
+      }
+
+    </style>
+    <div class="container">
+      <div class="product-container">
+        <img src="[[product.url]]" alt="" class="responsive">
+        <h4 id="title">[[product.name]]</h4>
+        <p id="description">[[product.description]]</p>
+        <p id="price">$[[product.price]]</p>
+        <paper-button on-tap="addToCart">Agregar al carrito</paper-button>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    /**
+     * `specific-product`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class SpecificProduct extends Polymer.Element {
+      static get is() {
+        return 'specific-product';
+      }
+      static get properties() {
+        return {
+          product: {
+            type: Object,
+            value() {
+              return {
+                name: "Producto 1",
+                description: "descripcion telefono",
+                url: "https://myrealmobile.com/content/images/thumbs/0000985_samsung-galaxy-j7-j710m_600.jpeg",
+                price: 325.20
+              }
+            }
+          }
+        };
+      }
+
+      addToCart(event){
+        this.dispatchEvent(new CustomEvent("add-cart",{
+          bubbles:false,
+          composed:false, 
+          detail:this.product
+        }))
+      }
+
+    }
+
+    window.customElements.define(SpecificProduct.is, SpecificProduct);
+  </script>
+</dom-module>
