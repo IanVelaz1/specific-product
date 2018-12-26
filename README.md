@@ -1,6 +1,21 @@
 # \<specific-product\>
 
+# Install bower
+```
+$ npm i bower
+```
 
+## run bower install
+```
+$ npm i bower
+```
+
+## Variables in specific-product
+
+```
+product:Object //determines the info of the selected product
+language:Object //determines the language of the actual buttons
+```
 
 ## Install the Polymer-CLI
 
