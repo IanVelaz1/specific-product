@@ -12,42 +12,41 @@
         width: 100%;
       }
 
-      .product-container{
+      .product-container {
         width: 400px;
         margin: 0 auto;
         text-align: center;
       }
- 
+
       .responsive {
         width: 100%;
         max-width: 400px;
         height: auto;
       }
 
-      paper-button{
-        --paper-button-ink-color:indigo;
+      paper-button {
+        --paper-button-ink-color: indigo;
       }
 
-      paper-button{
-        --paper-button:{
-          background-color:rgba(39,147,214,0.8);
-          font-weight:bolder;
-          color:white;
-          font-size:110%;
+      paper-button {
+        --paper-button: {
+          background-color: rgba(39, 147, 214, 0.8);
+          font-weight: bolder;
+          color: white;
+          font-size: 110%;
         }
       }
 
-      #title{
+      #title {
         font-size: 120%;
         font-weight: bold;
       }
 
-      #price{
+      #price {
         font-size: 115%;
         font-weight: bold;
         color: orange;
       }
-
     </style>
     <div class="container">
       <div class="product-container">
@@ -55,7 +54,7 @@
         <h4 id="title">[[product.name]]</h4>
         <p id="description">[[product.description]]</p>
         <p id="price">$[[product.price]]</p>
-        <paper-button on-tap="addToCart">Agregar al carrito</paper-button>
+        <paper-button on-tap="addToCart">[[language.addCart]]</paper-button>
       </div>
     </div>
   </template>
@@ -63,7 +62,7 @@
   <script>
     /**
      * `specific-product`
-     * 
+     * type
      *
      * @customElement
      * @polymer
@@ -79,18 +78,26 @@
             type: Object,
             value() {
               return {
-            
+
+              }
+            }
+          },
+          language: {
+            type: Object,
+            value() {
+              return {
+
               }
             }
           }
         };
       }
 
-      addToCart(event){
-        this.dispatchEvent(new CustomEvent("add-cart",{
-          bubbles:false,
-          composed:false, 
-          detail:this.product
+      addToCart(event) {
+        this.dispatchEvent(new CustomEvent("add-cart", {
+          bubbles: false,
+          composed: false,
+          detail: this.product
         }))
       }
 

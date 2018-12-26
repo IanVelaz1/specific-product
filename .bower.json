@@ -14,14 +14,13 @@
     "polymer": "^2.0.0"
   },
   "homepage": "https://github.com/jusolete/specific-product",
-  "_release": "e1eb16bad0",
+  "_release": "837f03ef0c",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "e1eb16bad021575c5b224fde385ed0f65c7dc1c8"
+    "commit": "837f03ef0cd6b3f93681df3b2e15bc0f78e2bc3a"
   },
   "_source": "https://github.com/jusolete/specific-product.git",
   "_target": "*",
-  "_originalSource": "jusolete/specific-product",
-  "_direct": true
+  "_originalSource": "jusolete/specific-product"
 }
